@@ -4,10 +4,20 @@ import { setCurrencyFrom, getExchangeRates } from '../actions/currencyActions'
 
 const CurrencyRow = () => {
   const dispatch = useDispatch()
+  const exchangeRate = useSelector((state) => state.currency.exchangeRate)
   const currencies = useSelector((state) => state.currency.currencies)
   const selectedCurrency = useSelector(
     (state) => state.currency.selectedCurrencyFrom
   )
+
+  //
+  useEffect(() => {
+    dispatch(getExchangeRates())
+  }, [])
+  //TESTING
+  useEffect(() => {
+    console.log(exchangeRate)
+  }, [exchangeRate])
 
   return (
     <div style={{ display: 'flex' }}>

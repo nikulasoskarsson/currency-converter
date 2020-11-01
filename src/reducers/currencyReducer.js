@@ -1,5 +1,6 @@
 import {
   GET_CURRENCIES,
+  GET_EXCHANGE_RATE,
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
   SET_LOADING,
@@ -12,10 +13,18 @@ const initialState = {
   selectedCurrencyTo: 'EUR',
   loading: false,
   error: null,
+  exchangeRate: null,
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_EXCHANGE_RATE: {
+      return {
+        ...state,
+        exchangeRate: action.payload,
+        loading: false,
+      }
+    }
     case SET_CURRENCY_FROM: {
       return {
         ...state,

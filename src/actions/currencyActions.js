@@ -1,5 +1,6 @@
 import {
   GET_CURRENCIES,
+  GET_EXCHANGE_RATE,
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
   SET_LOADING,
@@ -18,8 +19,8 @@ export const getExchangeRates = () => async (dispatch, getState) => {
       `https://api.exchangerate-api.com/v4/latest/${selectedFrom}`
     )
     const data = await res.json()
-    console.log(data.rates[selectedTo])
-    dispatch()
+    const exchangeRate = data.rates[selectedTo]
+    dispatch({ type: GET_EXCHANGE_RATE, payload: exchangeRate })
   } catch (error) {
     return {
       type: SET_ERROR,
