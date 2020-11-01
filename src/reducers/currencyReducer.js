@@ -31,6 +31,12 @@ const reducer = (state = initialState, action) => {
         selectedCurrencyFrom: action.payload,
       }
     }
+    case SET_CURRENCY_TO: {
+      return {
+        ...state,
+        selectedCurrencyTo: action.payload,
+      }
+    }
     case SET_LOADING:
       return {
         ...state,

@@ -7,7 +7,7 @@ import {
   SET_ERROR,
 } from './types'
 
-export const getExchangeRates = () => async (dispatch, getState) => {
+export const getExchangeRate = () => async (dispatch, getState) => {
   console.log('action running')
   setLoading() // Set the loading to true before starting the request
   const state = getState()
@@ -31,6 +31,10 @@ export const getExchangeRates = () => async (dispatch, getState) => {
 
 export const setCurrencyFrom = (currencyFrom) => {
   return { type: SET_CURRENCY_FROM, payload: currencyFrom }
+}
+
+export const setCurrencyTo = (currencyTo) => {
+  return { type: SET_CURRENCY_TO, payload: currencyTo }
 }
 
 // Set the loading to true

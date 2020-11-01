@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrencyFrom, getExchangeRates } from '../actions/currencyActions'
+import { setCurrencyFrom, getExchangeRate } from '../actions/currencyActions'
 
-const CurrencyRow = () => {
+const CurrencyFromRow = () => {
   const dispatch = useDispatch()
+  const error = useSelector((state) => state.currency.error)
   const exchangeRate = useSelector((state) => state.currency.exchangeRate)
   const currencies = useSelector((state) => state.currency.currencies)
   const selectedCurrency = useSelector(
@@ -12,7 +13,7 @@ const CurrencyRow = () => {
 
   //
   useEffect(() => {
-    dispatch(getExchangeRates())
+    dispatch(getExchangeRate())
   }, [])
   //TESTING
   useEffect(() => {
@@ -24,7 +25,7 @@ const CurrencyRow = () => {
       <select
         onChange={(e) => {
           dispatch(setCurrencyFrom(e.target.value))
-          dispatch(getExchangeRates())
+          dispatch(getExchangeRate())
         }}
         value={selectedCurrency}
       >
@@ -40,4 +41,4 @@ const CurrencyRow = () => {
   )
 }
 
-export default CurrencyRow
+export default CurrencyFromRow
