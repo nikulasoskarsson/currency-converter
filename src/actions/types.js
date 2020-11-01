@@ -1,0 +1,5 @@
+export const GET_CURRENCIES = 'GET_CURRENCIES'
+export const SET_CURRENCY_FROM = 'SET_CURRENCY_FROM'
+export const SET_CURRENCY_TO = 'SET_CURRENCY_TO'
+export const SET_LOADING = 'SET_LOADING'
+export const SET_ERROR = 'SET_ERROR'
