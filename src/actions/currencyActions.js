@@ -11,15 +11,12 @@ import {
 
 export const getExchangeRate = () => async (dispatch, getState) => {
   console.log('get exchange rate ran')
-  // dispatch(setLoading()) // Set the loading to true before starting the request
   const state = getState()
   const selectedFrom = state.currency.selectedCurrencyFrom
   const selectedTo = state.currency.selectedCurrencyTo
 
   try {
-    const res = await fetch(
-      `https://api.exchangerate-api.com/v4/latest/${selectedFrom}`
-    )
+    const res = await fetch(`${selectedFrom}`)
     const data = await res.json()
     const exchangeRate = data.rates[selectedTo]
     dispatch({ type: GET_EXCHANGE_RATE, payload: exchangeRate })

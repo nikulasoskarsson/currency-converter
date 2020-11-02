@@ -24,7 +24,6 @@ const CurrencyFromRow = () => {
     <div className='row currency-row'>
       <select
         onChange={(e) => {
-          dispatch(setLoading())
           dispatch(setCurrencyFrom(e.target.value))
           dispatch(getExchangeRate())
         }}
