@@ -10,11 +10,11 @@ import {
 } from './types'
 
 export const getExchangeRate = () => async (dispatch, getState) => {
-  setLoading() // Set the loading to true before starting the request
+  console.log('get exchange rate ran')
+  // dispatch(setLoading()) // Set the loading to true before starting the request
   const state = getState()
   const selectedFrom = state.currency.selectedCurrencyFrom
   const selectedTo = state.currency.selectedCurrencyTo
-  const amount = state.currency.amount
 
   try {
     const res = await fetch(
@@ -48,5 +48,6 @@ export const switchFromTo = () => {
 
 // Set the loading to true
 export const setLoading = () => {
+  console.log('set loading')
   return { type: SET_LOADING }
 }

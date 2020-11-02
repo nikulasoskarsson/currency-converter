@@ -16,9 +16,9 @@ const CurrencyToRow = () => {
     dispatch(getExchangeRate())
   }, [])
   //TESTING
-  useEffect(() => {
-    console.log(exchangeRate)
-  }, [exchangeRate])
+  // useEffect(() => {
+  //   console.log(exchangeRate)
+  // }, [exchangeRate])
 
   return (
     <div className='row currency-row'>

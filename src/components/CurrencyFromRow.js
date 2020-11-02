@@ -4,6 +4,7 @@ import {
   setCurrencyFrom,
   getExchangeRate,
   setAmount,
+  setLoading,
 } from '../actions/currencyActions'
 
 const CurrencyFromRow = () => {
@@ -15,14 +16,15 @@ const CurrencyFromRow = () => {
     (state) => state.currency.selectedCurrencyFrom
   )
 
-  useEffect(() => {
-    console.log(amount)
-  }, [amount])
+  // useEffect(() => {
+  //   console.log(amount)
+  // }, [amount])
 
   return (
     <div className='row currency-row'>
       <select
         onChange={(e) => {
+          dispatch(setLoading())
           dispatch(setCurrencyFrom(e.target.value))
           dispatch(getExchangeRate())
         }}
