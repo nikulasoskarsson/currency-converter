@@ -10,7 +10,7 @@ import {
 } from './types'
 
 export const getExchangeRate = () => async (dispatch, getState) => {
-  console.log('get exchange rate ran')
+  dispatch(setLoading())
   const state = getState()
   const selectedFrom = state.currency.selectedCurrencyFrom
   const selectedTo = state.currency.selectedCurrencyTo

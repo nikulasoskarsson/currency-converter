@@ -26,6 +26,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         exchangeRate: action.payload,
         loading: false,
+        error: null,
       }
     }
     case SET_CURRENCY_FROM: {

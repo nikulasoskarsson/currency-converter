@@ -44,7 +44,8 @@ const CurrencyFromRow = () => {
         }}
         type='number'
         id='amount-one'
-        placeholder='0'
+        placeholder='1'
+        min='1'
         value={amount}
       />
     </div>

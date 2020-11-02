@@ -13,7 +13,11 @@ const CurrencyToRow = () => {
 
   //
   useEffect(() => {
-    dispatch(getExchangeRate())
+    console.log(exchangeRate)
+    console.log(' use effect ran')
+    if (exchangeRate == null) {
+      dispatch(getExchangeRate())
+    }
   }, [])
   //TESTING
   // useEffect(() => {

@@ -14,9 +14,9 @@ const ExchangeRateContainer = () => {
   }, [loading])
   return (
     <>
+      <CurrencyFromRow />
       {!loading ? (
         <>
-          <CurrencyFromRow />
           <SwapRow />
           <CurrencyToRow />
         </>
