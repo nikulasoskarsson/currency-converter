@@ -38,7 +38,7 @@ code {
 .currency-input{
   width:3rem;
 }
-.swap-row button{
+button{
   border:none;
   background:var(--color-secondary);
   color:#fff;

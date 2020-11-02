@@ -1,6 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { filterFrom } from '../actions/currencyActions'
+import {
+  filterFrom,
+  getExchangeRate,
+  setCurrencyFrom,
+} from '../actions/currencyActions'
 
 const CurrencyFromFilters = () => {
   const dispatch = useDispatch()
@@ -9,15 +13,26 @@ const CurrencyFromFilters = () => {
     (state) => state.currency.fromFilteredCurrencies
   )
   return (
-    <div>
+    <div style={{ width: '300px', margin: '0 auto' }}>
       <input
+        style={{ width: '100%' }}
+        placeholder='Search for currency'
         type='text'
         onChange={(e) => dispatch(filterFrom(e.target.value))}
       />
       {filterString !== '' && (
-        <div>
+        <div style={{ width: '100%', marginTop: '0.5rem' }}>
           {filteredCurrencies.map((filteredCurrency) => (
-            <button>{filteredCurrency}</button>
+            <button
+              onClick={() => {
+                dispatch(setCurrencyFrom(filteredCurrency))
+                dispatch(getExchangeRate())
+              }}
+              style={{ marginLeft: '0.3rem' }}
+              className='button'
+            >
+              {filteredCurrency}
+            </button>
           ))}
         </div>
       )}
