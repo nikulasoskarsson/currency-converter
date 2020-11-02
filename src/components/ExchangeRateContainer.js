@@ -4,6 +4,7 @@ import Header from './Header'
 import CurrencyFromRow from './CurrencyFromRow'
 import SwapRow from './SwapRow'
 import CurrencyToRow from './CurrencyToRow'
+import Loading from './Loading'
 
 const ExchangeRateContainer = () => {
   const loading = useSelector((state) => state.currency.loading)
@@ -15,13 +16,12 @@ const ExchangeRateContainer = () => {
     <>
       {!loading ? (
         <>
-          <Header />
           <CurrencyFromRow />
           <SwapRow />
           <CurrencyToRow />
         </>
       ) : (
-        <div></div>
+        <Loading />
       )}
     </>
   )
