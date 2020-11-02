@@ -16,7 +16,7 @@ const CurrencyToFilters = () => {
     <div style={{ width: '300px', margin: '0 auto' }}>
       <input
         style={{ width: '100%' }}
-        placeholder='Search for currency'
+        placeholder='Search currency'
         type='text'
         onChange={(e) => dispatch(filterTo(e.target.value))}
       />
