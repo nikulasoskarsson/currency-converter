@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrencyFrom, getExchangeRate } from '../actions/currencyActions'
+import {
+  setCurrencyFrom,
+  getExchangeRate,
+  setAmount,
+} from '../actions/currencyActions'
 
 const CurrencyFromRow = () => {
   const dispatch = useDispatch()
-  const error = useSelector((state) => state.currency.error)
-  const exchangeRate = useSelector((state) => state.currency.exchangeRate)
+  // const error = useSelector((state) => state.currency.error)
+  const amount = useSelector((state) => state.currency.amount)
   const currencies = useSelector((state) => state.currency.currencies)
   const selectedCurrency = useSelector(
     (state) => state.currency.selectedCurrencyFrom
   )
 
-  //
   useEffect(() => {
-    dispatch(getExchangeRate())
-  }, [])
-  //TESTING
-  useEffect(() => {
-    console.log(exchangeRate)
-  }, [exchangeRate])
+    console.log(amount)
+  }, [amount])
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className='currency-row'>
       <select
         onChange={(e) => {
           dispatch(setCurrencyFrom(e.target.value))
@@ -36,7 +35,13 @@ const CurrencyFromRow = () => {
         ))}
       </select>
 
-      <input type='number' id='amount-one' placeholder='0' value='1' />
+      <input
+        onChange={(e) => dispatch(setAmount(e.target.value))}
+        type='number'
+        id='amount-one'
+        placeholder='0'
+        value={amount}
+      />
     </div>
   )
 }

@@ -24,3 +24,11 @@ code {
 .heading-3{
   color:var(--color-secondary)
 }
+
+.currency-row{
+  width:500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0 auto;
+}

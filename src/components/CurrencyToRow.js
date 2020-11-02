@@ -20,7 +20,7 @@ const CurrencyToRow = () => {
   }, [exchangeRate])
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className='currency-row'>
       <select
         onChange={(e) => {
           dispatch(setCurrencyTo(e.target.value))

@@ -3,6 +3,7 @@ import {
   GET_EXCHANGE_RATE,
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
+  SET_AMOUNT,
   SET_LOADING,
   SET_ERROR,
 } from '../actions/types'
@@ -14,6 +15,7 @@ const initialState = {
   loading: false,
   error: null,
   exchangeRate: null,
+  amount: 1,
 }
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +37,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         selectedCurrencyTo: action.payload,
+      }
+    }
+    case SET_AMOUNT: {
+      return {
+        ...state,
+        amount: action.payload,
       }
     }
     case SET_LOADING:
