@@ -24,6 +24,7 @@ const CurrencyToFilters = () => {
         <div style={{ width: '100%', marginTop: '0.5rem' }}>
           {filteredCurrencies.map((filteredCurrency) => (
             <button
+              key={filteredCurrency}
               onClick={() => {
                 dispatch(setCurrencyTo(filteredCurrency))
                 dispatch(getExchangeRate())

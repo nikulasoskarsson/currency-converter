@@ -12,17 +12,13 @@ const CurrencyToRow = () => {
     (state) => state.currency.selectedCurrencyTo
   )
 
-  //
+  /*eslint-disable */
   useEffect(() => {
     if (exchangeRate == null && error == null) {
       dispatch(getExchangeRate())
     }
   }, [])
-
-  //TESTING
-  // useEffect(() => {
-  //   console.log(exchangeRate)
-  // }, [exchangeRate])
+  /*eslint-enable */
 
   return (
     <div className='row currency-row'>

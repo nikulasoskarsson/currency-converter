@@ -1,5 +1,4 @@
 import {
-  GET_CURRENCIES,
   GET_EXCHANGE_RATE,
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
@@ -141,7 +140,6 @@ const reducer = (state = initialState, action) => {
         error: null,
       }
     case SET_ERROR: {
-      console.log('set error reducer running')
       return {
         ...state,
         loading: false,
