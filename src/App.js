@@ -5,6 +5,7 @@ import store from './store'
 import Header from './components/Header'
 import CurrencyFromRow from './components/CurrencyFromRow'
 import CurrencyToRow from './components/CurrencyToRow'
+import SwapRow from './components/SwapRow'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className='App'>
         <Header />
         <CurrencyFromRow />
+        <SwapRow />
         <CurrencyToRow />
       </div>
     </Provider>

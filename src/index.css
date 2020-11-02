@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:var(--color-primary);
 }
 
 code {
@@ -24,11 +25,27 @@ code {
 .heading-3{
   color:var(--color-secondary)
 }
-
-.currency-row{
-  width:500px;
+.row{
+  width:300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin:0 auto;
+}
+.currency-row{
+ 
+}
+.currency-input{
+  width:3rem;
+}
+.swap-row button{
+  border:none;
+  background:var(--color-secondary);
+  color:#fff;
+  border-radius:5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.5rem;
+}
+.swap-row p{
+  color:var(--color-secondary)
 }

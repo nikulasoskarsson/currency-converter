@@ -4,6 +4,7 @@ import {
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
   SET_AMOUNT,
+  SWITCH_FROM_TO,
   SET_LOADING,
   SET_ERROR,
 } from './types'
@@ -20,7 +21,7 @@ export const getExchangeRate = () => async (dispatch, getState) => {
       `https://api.exchangerate-api.com/v4/latest/${selectedFrom}`
     )
     const data = await res.json()
-    const exchangeRate = data.rates[selectedTo] * amount
+    const exchangeRate = data.rates[selectedTo]
     dispatch({ type: GET_EXCHANGE_RATE, payload: exchangeRate })
   } catch (error) {
     return {
@@ -40,6 +41,9 @@ export const setCurrencyTo = (currencyTo) => {
 
 export const setAmount = (amount) => {
   return { type: SET_AMOUNT, payload: amount }
+}
+export const switchFromTo = () => {
+  return { type: SWITCH_FROM_TO }
 }
 
 // Set the loading to true

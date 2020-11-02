@@ -4,6 +4,7 @@ import {
   SET_CURRENCY_FROM,
   SET_CURRENCY_TO,
   SET_AMOUNT,
+  SWITCH_FROM_TO,
   SET_LOADING,
   SET_ERROR,
 } from '../actions/types'
@@ -43,6 +44,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         amount: action.payload,
+      }
+    }
+    case SWITCH_FROM_TO: {
+      return {
+        ...state,
+        selectedCurrencyFrom: state.selectedCurrencyTo,
+        selectedCurrencyTo: state.selectedCurrencyFrom,
       }
     }
     case SET_LOADING:

@@ -20,7 +20,7 @@ const CurrencyFromRow = () => {
   }, [amount])
 
   return (
-    <div className='currency-row'>
+    <div className='row currency-row'>
       <select
         onChange={(e) => {
           dispatch(setCurrencyFrom(e.target.value))
@@ -36,6 +36,7 @@ const CurrencyFromRow = () => {
       </select>
 
       <input
+        className='currency-input'
         onChange={(e) => {
           dispatch(setAmount(e.target.value))
           dispatch(getExchangeRate())

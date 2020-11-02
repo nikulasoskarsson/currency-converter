@@ -6,6 +6,7 @@ const CurrencyToRow = () => {
   const dispatch = useDispatch()
   const exchangeRate = useSelector((state) => state.currency.exchangeRate)
   const currencies = useSelector((state) => state.currency.currencies)
+  const amount = useSelector((state) => state.currency.amount)
   const selectedCurrency = useSelector(
     (state) => state.currency.selectedCurrencyTo
   )
@@ -20,7 +21,7 @@ const CurrencyToRow = () => {
   }, [exchangeRate])
 
   return (
-    <div className='currency-row'>
+    <div className='row currency-row'>
       <select
         onChange={(e) => {
           dispatch(setCurrencyTo(e.target.value))
@@ -35,7 +36,7 @@ const CurrencyToRow = () => {
         ))}
       </select>
 
-      <p>{exchangeRate}</p>
+      <p>{exchangeRate * amount}</p>
     </div>
   )
 }
