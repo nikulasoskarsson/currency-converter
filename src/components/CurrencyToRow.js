@@ -40,7 +40,7 @@ const CurrencyToRow = () => {
         ))}
       </select>
 
-      <p>{exchangeRate * amount}</p>
+      <p>{!error && exchangeRate * amount}</p>
     </div>
   )
 }

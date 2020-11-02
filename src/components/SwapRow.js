@@ -10,6 +10,8 @@ const SwapRow = () => {
   const selectedCurrencyTo = useSelector(
     (state) => state.currency.selectedCurrencyTo
   )
+
+  const error = useSelector((state) => state.currency.error)
   const exchangeRate = useSelector((state) => state.currency.exchangeRate)
   return (
     <div className='row swap-row'>
@@ -22,7 +24,8 @@ const SwapRow = () => {
         Swap
       </button>
       <p>
-        {`1 ${selectedCurrencyFrom} = ${exchangeRate} ${selectedCurrencyTo}`}
+        {!error &&
+          `1 ${selectedCurrencyFrom} = ${exchangeRate} ${selectedCurrencyTo}`}
       </p>
     </div>
   )
