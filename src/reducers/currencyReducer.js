@@ -5,6 +5,7 @@ import {
   SET_CURRENCY_TO,
   SET_AMOUNT,
   SWITCH_FROM_TO,
+  FILTER_FROM,
   SET_LOADING,
   SET_ERROR,
 } from '../actions/types'
@@ -17,6 +18,8 @@ const initialState = {
   error: null,
   exchangeRate: null,
   amount: 1,
+  fromFilterString: '',
+  fromFilteredCurrencies: ['AED', 'ARS', 'BGN', 'USD', 'EUR'],
 }
 
 const reducer = (state = initialState, action) => {
@@ -52,6 +55,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         selectedCurrencyFrom: state.selectedCurrencyTo,
         selectedCurrencyTo: state.selectedCurrencyFrom,
+      }
+    }
+    case FILTER_FROM: {
+      return {
+        ...state,
+        fromFilterString: action.payload,
+        // fromFilteredCurrencies: state.fromFilteredCurrencies.filter(currency =>)
       }
     }
     case SET_LOADING:

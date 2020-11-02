@@ -5,6 +5,7 @@ import {
   SET_CURRENCY_TO,
   SET_AMOUNT,
   SWITCH_FROM_TO,
+  FILTER_FROM,
   SET_LOADING,
   SET_ERROR,
 } from './types'
@@ -53,6 +54,10 @@ export const setAmount = (amount) => {
 }
 export const switchFromTo = () => {
   return { type: SWITCH_FROM_TO }
+}
+
+export const filterFrom = (string) => {
+  return { type: FILTER_FROM, payload: string }
 }
 
 // Set the loading to true

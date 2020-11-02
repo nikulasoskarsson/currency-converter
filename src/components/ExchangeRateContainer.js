@@ -5,6 +5,7 @@ import CurrencyFromRow from './CurrencyFromRow'
 import SwapRow from './SwapRow'
 import CurrencyToRow from './CurrencyToRow'
 import Loading from './Loading'
+import CurrencyFromFilters from './CurrencyFromFilters'
 
 const ExchangeRateContainer = () => {
   const loading = useSelector((state) => state.currency.loading)
@@ -18,6 +19,7 @@ const ExchangeRateContainer = () => {
       <CurrencyFromRow />
       {!loading ? (
         <>
+          <CurrencyFromFilters />
           <SwapRow />
           <CurrencyToRow />
         </>
@@ -25,7 +27,7 @@ const ExchangeRateContainer = () => {
         <Loading />
       )}
 
-      {error && <p class='error'>{error}</p>}
+      {error && <p className='error'>{error}</p>}
     </>
   )
 }
