@@ -61,7 +61,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fromFilterString: action.payload,
-        // fromFilteredCurrencies: state.fromFilteredCurrencies.filter(currency =>)
+        fromFilteredCurrencies: state.currencies.filter((currency) =>
+          currency.toLowerCase().includes(action.payload.toLowerCase())
+        ),
       }
     }
     case SET_LOADING:
