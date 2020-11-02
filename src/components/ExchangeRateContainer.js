@@ -8,6 +8,7 @@ import Loading from './Loading'
 
 const ExchangeRateContainer = () => {
   const loading = useSelector((state) => state.currency.loading)
+  const error = useSelector((state) => state.currency.error)
   useEffect(() => {
     console.log('loading changed')
     console.log('loading', loading)
@@ -23,6 +24,8 @@ const ExchangeRateContainer = () => {
       ) : (
         <Loading />
       )}
+
+      {error && <p class='error'>{error}</p>}
     </>
   )
 }

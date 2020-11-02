@@ -7,18 +7,18 @@ const CurrencyToRow = () => {
   const exchangeRate = useSelector((state) => state.currency.exchangeRate)
   const currencies = useSelector((state) => state.currency.currencies)
   const amount = useSelector((state) => state.currency.amount)
+  const error = useSelector((state) => state.currency.error)
   const selectedCurrency = useSelector(
     (state) => state.currency.selectedCurrencyTo
   )
 
   //
   useEffect(() => {
-    console.log(exchangeRate)
-    console.log(' use effect ran')
-    if (exchangeRate == null) {
+    if (exchangeRate == null && error == null) {
       dispatch(getExchangeRate())
     }
   }, [])
+
   //TESTING
   // useEffect(() => {
   //   console.log(exchangeRate)

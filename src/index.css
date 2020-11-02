@@ -49,3 +49,8 @@ code {
 .swap-row p{
   color:var(--color-secondary)
 }
+
+.error{
+  color:red;
+  align-self: flex-start;
+}

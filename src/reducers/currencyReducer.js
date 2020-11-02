@@ -58,7 +58,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        error: null,
       }
+    case SET_ERROR: {
+      console.log('set error reducer running')
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      }
+    }
     default:
       return state
   }

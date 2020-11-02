@@ -10,6 +10,7 @@ import {
 } from './types'
 
 export const getExchangeRate = () => async (dispatch, getState) => {
+  console.log(' it is running')
   dispatch(setLoading())
   const state = getState()
   const selectedFrom = state.currency.selectedCurrencyFrom
@@ -18,13 +19,24 @@ export const getExchangeRate = () => async (dispatch, getState) => {
   try {
     const res = await fetch(`${selectedFrom}`)
     const data = await res.json()
-    const exchangeRate = data.rates[selectedTo]
-    dispatch({ type: GET_EXCHANGE_RATE, payload: exchangeRate })
+
+    if (res.status !== 200) {
+      console.log('error ')
+      dispatch({
+        type: SET_ERROR,
+        payload: 'There was an error making the convertion',
+      })
+    } else {
+      console.log(' no error')
+      const exchangeRate = data.rates[selectedTo]
+      dispatch({ type: GET_EXCHANGE_RATE, payload: exchangeRate })
+    }
   } catch (error) {
-    return {
+    console.log('server error')
+    dispatch({
       type: SET_ERROR,
       payload: 'There was an error making the convertion',
-    }
+    })
   }
 }
 
