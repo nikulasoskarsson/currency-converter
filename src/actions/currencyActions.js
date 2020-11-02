@@ -6,6 +6,7 @@ import {
   SET_AMOUNT,
   SWITCH_FROM_TO,
   FILTER_FROM,
+  FILTER_TO,
   SET_LOADING,
   SET_ERROR,
 } from './types'
@@ -58,6 +59,9 @@ export const switchFromTo = () => {
 
 export const filterFrom = (string) => {
   return { type: FILTER_FROM, payload: string }
+}
+export const filterTo = (string) => {
+  return { type: FILTER_TO, payload: string }
 }
 
 // Set the loading to true

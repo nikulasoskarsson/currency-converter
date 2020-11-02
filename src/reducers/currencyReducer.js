@@ -6,6 +6,7 @@ import {
   SET_AMOUNT,
   SWITCH_FROM_TO,
   FILTER_FROM,
+  FILTER_TO,
   SET_LOADING,
   SET_ERROR,
 } from '../actions/types'
@@ -73,6 +74,8 @@ const initialState = {
   amount: 1,
   fromFilterString: '',
   fromFilteredCurrencies: [],
+  toFilterString: '',
+  toFilteredCurrencies: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -96,8 +99,10 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         selectedCurrencyTo: action.payload,
+        toFilterString: '',
       }
     }
+
     case SET_AMOUNT: {
       return {
         ...state,
@@ -116,6 +121,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         fromFilterString: action.payload,
         fromFilteredCurrencies: state.currencies.filter((currency) =>
+          currency.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      }
+    }
+    case FILTER_TO: {
+      return {
+        ...state,
+        toFilterString: action.payload,
+        toFilteredCurrencies: state.currencies.filter((currency) =>
           currency.toLowerCase().includes(action.payload.toLowerCase())
         ),
       }
